@@ -1,16 +1,16 @@
 let canvas=document.getElementById("areaJuego");
 let ctx=canvas.getContext("2d");
 
-const ALTURA_SUELO=40;
-const ALTURA_PERSONAJE=60;
+const ALTURA_SUELO=20;
+const ALTO_PERSONAJE=60;
 const ANCHO_PERSONAJE=40;
 const ANCHO_LIMON=20;
-const ALTURA_LIMON=20;
+const ALTO_LIMON=20;
 
-let personajeX=canvas.width/2;
-let personajeY=ALTURA_SUELO+ALTURA_PERSONAJE;
+let personajeX=canvas.width - ANCHO_PERSONAJE;;
+let personajeY=canvas.height-(ALTURA_SUELO + ALTO_PERSONAJE);
 let limonX=canvas.width/2;
-let limonY=5;
+let limonY=0;
 
 
 
@@ -27,19 +27,17 @@ function dibujarSuelo(){
 
 function dibujarPersonaje(){
     ctx.fillStyle="yellow";
-    ctx.fillRect(personajeX,canvas.height - personajeY, ANCHO_PERSONAJE, ALTURA_PERSONAJE);
+    ctx.fillRect(personajeX, personajeY, ANCHO_PERSONAJE, ALTO_PERSONAJE);
 }
 
 function moverIzquierda(){
-    personajeX-=10;
+    personajeX = 0;
     actualizarPantalla();
-    detectarColision();
 }
 
 function moverDerecha(){
-    personajeX+=10;
+    personajeX = canvas.width - ANCHO_PERSONAJE;
     actualizarPantalla();
-    detectarColision();
 }
 
 
@@ -47,7 +45,7 @@ function actualizarPantalla(){
     limpiarCanvas();
     dibujarSuelo();
     dibujarPersonaje();
-    dibujarLimon();
+    aparecerLimon();
 }
 function limpiarCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -56,18 +54,34 @@ function limpiarCanvas(){
 
 function dibujarLimon(){
     ctx.fillStyle="green";
-    ctx.fillRect(limonX, limonY, ANCHO_LIMON, ALTURA_LIMON);
+    ctx.fillRect(limonX, limonY, ANCHO_LIMON, ALTO_LIMON);
 }
 
 function bajarLimon(){
     limonY+=10;
     actualizarPantalla();
+    detectarColision();
  
 }
 
 function detectarColision(){
-    if (limonX + ANCHO_LIMON > personajeX && limonX < personajeX + ANCHO_PERSONAJE && limonY + ALTURA_LIMON > personajeY && limonY < personajeY + ALTURA_PERSONAJE); {
-
-        alert("ATRAPADO!");
+    if (limonX + ANCHO_LIMON > personajeX && 
+        limonX < personajeX + ANCHO_PERSONAJE && 
+        limonY + ALTO_LIMON > personajeY && 
+        limonY < personajeY + ALTO_PERSONAJE) {
+            
+        //alert("ATRAPADO!");
+        aparecerLimon();
     }
+}
+
+function probarAleatorio(){
+   let aleatorio = generarAleatorio(10, 80);
+    console.log(aleatorio);
+}
+
+function aparecerLimon(){
+    limonX = generarAleatorio(0, canvas.width - ANCHO_LIMON);
+    limonY = 0;
+    actualizarPantalla();
 }
