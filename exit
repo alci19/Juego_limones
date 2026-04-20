@@ -1,0 +1,30 @@
+[33mcommit 90b58361c91a38e321fdc27c045fb0f98b9f0970[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: alci19 <bytonalci@gmail.com>
+Date:   Tue Apr 14 23:28:24 2026 -0500
+
+    Se añadio mover a derecha
+
+[33mcommit 087220dcfe99ba614b2eadeb6f88a4a748a50fbf[m
+Author: alci19 <bytonalci@gmail.com>
+Date:   Tue Apr 14 23:22:04 2026 -0500
+
+    Añadimos funcion mover derecha
+    git status
+
+[33mcommit 90af1c5aef35dc9db1dcaec2633e8eafb0fa3dca[m
+Author: alci19 <bytonalci@gmail.com>
+Date:   Tue Apr 14 23:13:49 2026 -0500
+
+    Agregar funciones de suelo y personaje
+
+[33mcommit c8b8af845da3951784cde71f2ca6c3831afb886f[m
+Author: alci19 <bytonalci@gmail.com>
+Date:   Mon Apr 13 22:37:14 2026 -0500
+
+    Agregar Canvas
+
+[33mcommit fe483faf4a683a2294523309f5fe2c7fc1164e4d[m[33m ([m[1;32munset-upstream[m[33m)[m
+Author: alci19 <bytonalci@gmail.com>
+Date:   Mon Apr 13 22:25:33 2026 -0500
+
+    Agrega archivos base con hoja de estilo referencial
