@@ -14,12 +14,13 @@ let limonY=0;
 let puntaje = 0;
 let vidas = 3;
 let velocidadCaida = 200
+let intervalo;
 
 
 
 
 function iniciarJuego(){   
-    setInterval(bajarLimon, velocidadCaida); // (funcion, tiempo en milisegundos) 
+    intervalo = setInterval(bajarLimon, velocidadCaida); // (funcion, tiempo en milisegundos) 
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
@@ -92,6 +93,7 @@ function detectarAtrapado(){
 
         if (puntaje === 10){
             alert("¡Has dominado la lluvia de limones!");
+            detenerJuego();
         }
 }
 
@@ -106,9 +108,13 @@ function detectarPiso(){
     }
         else{ 
             alert("GAME OVER");
+            detenerJuego();
         }  
 }
 
+function detenerJuego(){
+    clearInterval(intervalo);
+}
 function aparecerLimon(){
     limonX = generarAleatorio(0, canvas.width - ANCHO_LIMON);
     limonY = 0;
