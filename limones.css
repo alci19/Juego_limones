@@ -92,3 +92,86 @@ button:hover {
   font-weight: bold;
   color: #facc15;
 }
+
+/* FONDO ANIMADO */
+.fondo-animado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(270deg, #0f172a, #1e293b, #0ea5e9);
+  background-size: 600% 600%;
+  animation: moverFondo 12s ease infinite;
+}
+
+/* Animación del degradado */
+@keyframes moverFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Partículas flotantes */
+.fondo-animado::before,
+.fondo-animado::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
+  background-size: 50px 50px;
+  animation: flotar 20s linear infinite;
+}
+
+.fondo-animado::after {
+  animation-duration: 30s;
+  opacity: 0.5;
+}
+
+/* Movimiento de partículas */
+@keyframes flotar {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-200px) translateX(-200px);
+  }
+}
+/* CONTENEDOR DEL JUEGO */
+.zona-juego {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* LOGOS LATERALES */
+.logo-lateral {
+  width: 400px;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover elegante */
+.logo-lateral:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* CANVAS (asegura centrado) */
+canvas {
+  display: block;
+}
+.logo-lateral {
+  width: 400px;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
