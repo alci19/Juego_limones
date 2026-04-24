@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Caza Estrellas</title>
+  <meta charset="UTF-8">
+  <title>Atrapar Limones</title>
   <link rel="stylesheet" href="limones.css">
- 
 </head>
+
 <body onload="iniciarJuego()">
   <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones </p>
-    <h2>Autor: Byron Farinango</h2>
-    <canvas id="areaJuego" width="600" height="400"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
 
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda()">Izquierda</button>
-      <button onclick="moverDerecha()">Derecha</button>
-      <button onclick="reiniciar()">Reiniciar</button>
-      
-    </div>
+    <header class="header">
+      <h1>🍋 Atrapar Limones</h1>
+      <p class="frase">Si del cielo te caen limones... ¡atrápalos!</p>
+      <h2 class="autor">Autor: Byron Farinango</h2>
+    </header>
+
+    <main class="juego">
+      <canvas id="areaJuego" width="600" height="400"></canvas>
+
+      <div class="panel">
+        <div class="stat">
+          <span class="label">Puntaje</span>
+          <span id="txtPuntaje">0</span>
+        </div>
+
+        <div class="stat">
+          <span class="label">Vidas</span>
+          <span id="txtVidas">3</span>
+        </div>
+      </div>
+
+      <div id="mensaje" class="mensaje"></div>
+
+      <div class="botones">
+        <button onclick="moverIzquierda()">⬅</button>
+        <button onclick="moverDerecha()">➡</button>
+        <button onclick="reiniciar()">🔄 Reiniciar</button>
+      </div>
+    </main>
+
   </div>
-  <script src="limones.js"></script>
+
   <script src="utils.js"></script>
+  <script src="limones.js"></script>
 </body>
 </html>
